@@ -1,0 +1,522 @@
+{
+  "meta": {
+    "campus": "CITmaps Demo Campus",
+    "building": "Academic Block",
+    "floorName": "Floor 0",
+    "defaultStart": "entrance",
+    "floorPlanImage": "assets/groundfloorplan.jpeg",
+    "featuredDestinations": [
+      "entrance",
+      "reception",
+      "lift",
+      "library",
+      "lab013",
+      "lab020",
+      "faculty_hall_left",
+      "faculty_hall_right"
+    ],
+    "viewBox": {
+      "width": 1600,
+      "height": 1200
+    },
+    "buildingOutline": {
+      "x": 248,
+      "y": 40,
+      "width": 1248,
+      "height": 1120,
+      "radius": 22
+    }
+  },
+  "corridors": [
+    {
+      "id": "corridor_top",
+      "name": "Top Corridor",
+      "shapes": [
+        { "x": 410, "y": 220, "width": 1040, "height": 76, "radius": 10 }
+      ]
+    },
+    {
+      "id": "corridor_outer_left",
+      "name": "West Outer Corridor",
+      "shapes": [
+        { "x": 458, "y": 232, "width": 84, "height": 332, "radius": 10 },
+        { "x": 374, "y": 558, "width": 54, "height": 410, "radius": 10 },
+        { "x": 374, "y": 560, "width": 368, "height": 74, "radius": 10 }
+      ]
+    },
+    {
+      "id": "corridor_inner_left",
+      "name": "West Garden Corridor",
+      "shapes": [
+        { "x": 652, "y": 274, "width": 90, "height": 360, "radius": 10 }
+      ]
+    },
+    {
+      "id": "corridor_mid",
+      "name": "Central Connector Corridor",
+      "shapes": [
+        { "x": 448, "y": 560, "width": 666, "height": 74, "radius": 10 },
+        { "x": 1108, "y": 580, "width": 342, "height": 54, "radius": 10 }
+      ]
+    },
+    {
+      "id": "corridor_inner_right",
+      "name": "East Garden Corridor",
+      "shapes": [
+        { "x": 1018, "y": 274, "width": 90, "height": 360, "radius": 10 }
+      ]
+    },
+    {
+      "id": "corridor_outer_right",
+      "name": "East Outer Corridor",
+      "shapes": [
+        { "x": 1358, "y": 245, "width": 92, "height": 724, "radius": 10 }
+      ]
+    },
+    {
+      "id": "corridor_entrance_spine",
+      "name": "Entrance Spine Corridor",
+      "shapes": [
+        { "x": 652, "y": 634, "width": 88, "height": 356, "radius": 10 },
+        { "x": 652, "y": 936, "width": 88, "height": 178, "radius": 10 },
+        { "x": 1019, "y": 634, "width": 92, "height": 480, "radius": 10 },
+        { "x": 740, "y": 700, "width": 324, "height": 236, "radius": 14 },
+        { "x": 946, "y": 936, "width": 165, "height": 118, "radius": 18 },
+        { "x": 736, "y": 1054, "width": 36, "height": 60, "radius": 10 },
+        { "x": 770, "y": 1054, "width": 341, "height": 60, "radius": 18 }
+      ]
+    }
+  ],
+  "spaces": [
+    {
+      "id": "entrance",
+      "name": "Entrance",
+      "code": "ENT",
+      "type": "facility",
+      "x": 620,
+      "y": 1096,
+      "width": 448,
+      "height": 96,
+      "entryNode": "node_entrance",
+      "description": "Main public entrance aligned to the front side of the building.",
+      "keywords": ["front entrance", "entry", "main gate", "main entry"]
+    },
+    {
+      "id": "reception",
+      "name": "Reception",
+      "code": "REC",
+      "type": "facility",
+      "x": 746,
+      "y": 962,
+      "width": 196,
+      "height": 92,
+      "entryNode": "node_reception",
+      "accessPath": [
+        { "x": 846, "y": 1054 }
+      ],
+      "description": "Reception area accessed from the straight front circulation lane.",
+      "keywords": ["front desk", "help desk", "admin", "welcome desk"]
+    },
+    {
+      "id": "main_staircase",
+      "name": "Main Staircase",
+      "code": "STAIR-A",
+      "type": "stairs",
+      "x": 756,
+      "y": 704,
+      "width": 214,
+      "height": 212,
+      "shapes": [
+        { "x": 756, "y": 704, "width": 74, "height": 212, "radius": 8 },
+        { "x": 756, "y": 812, "width": 214, "height": 104, "radius": 8 }
+      ],
+      "labelX": 846,
+      "labelY": 874,
+      "accessPath": [
+        { "x": 846, "y": 914 },
+        { "x": 744, "y": 914 },
+        { "x": 744, "y": 904 }
+      ],
+      "entryNode": "node_core_south",
+      "description": "L-shaped main staircase wrapping the central lift core.",
+      "keywords": ["stairs", "main stairs", "central stairs"]
+    },
+    {
+      "id": "lift",
+      "name": "Lift",
+      "code": "LIFT",
+      "type": "lift",
+      "x": 810,
+      "y": 714,
+      "width": 94,
+      "height": 138,
+      "accessPath": [
+        { "x": 846, "y": 738 },
+        { "x": 846, "y": 702 }
+      ],
+      "entryNode": "node_core_north",
+      "description": "Central lift connected to the reception and corridor spine.",
+      "keywords": ["elevator", "lift lobby"]
+    },
+    {
+      "id": "stairs_left",
+      "name": "West Side Staircase",
+      "code": "STAIR-C",
+      "type": "stairs",
+      "x": 432,
+      "y": 556,
+      "width": 44,
+      "height": 126,
+      "showSceneLabel": false,
+      "routeBlock": false,
+      "entryNode": "node_mid_left_wing",
+      "accessPath": [
+        { "x": 414, "y": 562 }
+      ],
+      "description": "Side stair connected to the west corridor near Labs 019 and 018.",
+      "keywords": ["stairs", "west stairs", "side stairs"]
+    },
+    {
+      "id": "garden_left",
+      "name": "West Stairs",
+      "code": "STAIR-W",
+      "type": "stairs",
+      "x": 470,
+      "y": 272,
+      "width": 72,
+      "height": 296,
+      "entryNode": "node_top_left",
+      "accessPath": [
+        { "x": 500, "y": 256 },
+        { "x": 500, "y": 260 }
+      ],
+      "description": "West-side staircase beside the west faculty hall.",
+      "keywords": ["stairs", "west staircase", "west stairs"]
+    },
+    {
+      "id": "faculty_hall_left",
+      "name": "Faculty Hall West",
+      "code": "FAC-W",
+      "type": "faculty",
+      "x": 540,
+      "y": 270,
+      "width": 108,
+      "height": 296,
+      "entryNode": "node_faculty_left_entry",
+      "description": "West faculty hall overlooking the side garden.",
+      "keywords": ["faculty hall", "west faculty", "hall"]
+    },
+    {
+      "id": "garden_central",
+      "name": "Central Garden",
+      "code": "GDN-C",
+      "type": "garden",
+      "x": 786,
+      "y": 316,
+      "width": 218,
+      "height": 272,
+      "entryNode": "node_mid_cross",
+      "description": "Main central garden enclosed by the corridor ring.",
+      "keywords": ["central court", "garden", "courtyard"]
+    },
+    {
+      "id": "garden_right",
+      "name": "East Stairs",
+      "code": "STAIR-E",
+      "type": "stairs",
+      "x": 1286,
+      "y": 276,
+      "width": 72,
+      "height": 304,
+      "entryNode": "node_top_right",
+      "accessPath": [
+        { "x": 1322, "y": 256 },
+        { "x": 1322, "y": 264 }
+      ],
+      "description": "East-side staircase beside the east faculty hall.",
+      "keywords": ["stairs", "east staircase", "east stairs"]
+    },
+    {
+      "id": "faculty_hall_right",
+      "name": "Faculty Hall East",
+      "code": "FAC-E",
+      "type": "faculty",
+      "x": 1108,
+      "y": 282,
+      "width": 178,
+      "height": 294,
+      "entryNode": "node_faculty_right_entry",
+      "description": "East faculty hall facing the right-side garden.",
+      "keywords": ["faculty hall", "east faculty", "hall"]
+    },
+    {
+      "id": "room001",
+      "name": "Room 001",
+      "code": "001",
+      "type": "classroom",
+      "x": 302,
+      "y": 42,
+      "width": 126,
+      "height": 176,
+      "entryNode": "node_top_left",
+      "accessPath": [
+        { "x": 416, "y": 256 },
+        { "x": 416, "y": 230 }
+      ],
+      "description": "Classroom 001 on the upper west side of the top corridor.",
+      "keywords": ["classroom", "room 1", "001"]
+    },
+    {
+      "id": "room002",
+      "name": "Room 002",
+      "code": "002",
+      "type": "classroom",
+      "x": 428,
+      "y": 42,
+      "width": 176,
+      "height": 176,
+      "entryNode": "node_top_left",
+      "description": "Classroom 002 along the top corridor.",
+      "keywords": ["classroom", "room 2", "002"]
+    },
+    {
+      "id": "room003",
+      "name": "Room 003",
+      "code": "003",
+      "type": "classroom",
+      "x": 602,
+      "y": 34,
+      "width": 186,
+      "height": 184,
+      "entryNode": "node_top_center",
+      "description": "Classroom 003 along the top corridor.",
+      "keywords": ["classroom", "room 3", "003"]
+    },
+    {
+      "id": "room004",
+      "name": "Room 004",
+      "code": "004",
+      "type": "classroom",
+      "x": 790,
+      "y": 34,
+      "width": 184,
+      "height": 184,
+      "entryNode": "node_top_center",
+      "description": "Classroom 004 along the top corridor.",
+      "keywords": ["classroom", "room 4", "004"]
+    },
+    {
+      "id": "room005",
+      "name": "Room 005",
+      "code": "005",
+      "type": "classroom",
+      "x": 972,
+      "y": 38,
+      "width": 156,
+      "height": 180,
+      "entryNode": "node_top_right",
+      "description": "Classroom 005 near the east end of the top corridor.",
+      "keywords": ["classroom", "room 5", "005"]
+    },
+    {
+      "id": "room006",
+      "name": "Room 006",
+      "code": "006",
+      "type": "classroom",
+      "x": 1034,
+      "y": 120,
+      "width": 136,
+      "height": 110,
+      "entryNode": "node_top_right",
+      "description": "Classroom 006 beside the HOD and service rooms.",
+      "keywords": ["classroom", "room 6", "006"]
+    },
+    {
+      "id": "hod_cabin",
+      "name": "HOD Cabin",
+      "code": "HOD",
+      "type": "office",
+      "x": 1172,
+      "y": 116,
+      "width": 114,
+      "height": 126,
+      "entryNode": "node_top_right",
+      "description": "Head of Department cabin in the upper-right service block.",
+      "keywords": ["hod", "room007", "007", "cabin", "head of department"]
+    },
+    {
+      "id": "staff_room_annex",
+      "name": "Staff Room Annex",
+      "code": "STAFF-A",
+      "type": "office",
+      "x": 1284,
+      "y": 112,
+      "width": 84,
+      "height": 132,
+      "entryNode": "node_top_right",
+      "description": "Small staff room annex in the upper-right service block.",
+      "keywords": ["staff room", "room008", "008", "annex"]
+    },
+    {
+      "id": "boys_washroom",
+      "name": "Boys Washroom",
+      "code": "BOYS",
+      "type": "washroom",
+      "x": 1366,
+      "y": 112,
+      "width": 72,
+      "height": 132,
+      "entryNode": "node_top_right",
+      "description": "Boys washroom beside the staff annex.",
+      "keywords": ["washroom", "toilet", "boys", "room009", "009"]
+    },
+    {
+      "id": "girls_washroom",
+      "name": "Girls Washroom",
+      "code": "GIRLS",
+      "type": "washroom",
+      "x": 1436,
+      "y": 94,
+      "width": 100,
+      "height": 160,
+      "entryNode": "node_top_right",
+      "description": "Girls washroom in the upper-right corner block.",
+      "keywords": ["washroom", "toilet", "girls", "room010", "010"]
+    },
+    {
+      "id": "room011",
+      "name": "Room 011",
+      "code": "011",
+      "type": "classroom",
+      "x": 1438,
+      "y": 250,
+      "width": 150,
+      "height": 174,
+      "entryNode": "node_top_right",
+      "accessPath": [
+        { "x": 1402, "y": 256 },
+        { "x": 1402, "y": 337 },
+        { "x": 1426, "y": 337 }
+      ],
+      "description": "Classroom 011 along the east outer corridor.",
+      "keywords": ["classroom", "room 11", "011"]
+    },
+    {
+      "id": "lab012",
+      "name": "Lab 012",
+      "code": "012",
+      "type": "lab",
+      "x": 1468,
+      "y": 430,
+      "width": 132,
+      "height": 274,
+      "entryNode": "node_mid_right_wing",
+      "accessPath": [
+        { "x": 1424, "y": 598 }
+      ],
+      "description": "Laboratory 012 in the east outer wing.",
+      "keywords": ["lab 12", "012", "laboratory"]
+    },
+    {
+      "id": "library",
+      "name": "Library",
+      "code": "LIB",
+      "type": "library",
+      "x": 1112,
+      "y": 644,
+      "width": 372,
+      "height": 470,
+      "entryNode": "node_right_lower",
+      "description": "Large library block on the east side near the entrance-facing corridor.",
+      "keywords": ["books", "reading", "reference", "study"]
+    },
+    {
+      "id": "lab013",
+      "name": "Lab 013",
+      "code": "013",
+      "type": "lab",
+      "x": 1436,
+      "y": 652,
+      "width": 114,
+      "height": 304,
+      "entryNode": "node_mid_right_wing",
+      "accessPath": [
+        { "x": 1402, "y": 640 },
+        { "x": 1443, "y": 640 }
+      ],
+      "description": "Laboratory 013 connected to the east lower wing beside the library.",
+      "keywords": ["lab 13", "013", "laboratory"]
+    },
+    {
+      "id": "lab020",
+      "name": "Lab 020",
+      "code": "020",
+      "type": "lab",
+      "x": 300,
+      "y": 212,
+      "width": 164,
+      "height": 338,
+      "entryNode": "node_left_lower",
+      "accessPath": [
+        { "x": 696, "y": 598 },
+        { "x": 414, "y": 598 },
+        { "x": 414, "y": 562 },
+        { "x": 382, "y": 562 }
+      ],
+      "description": "Laboratory 020 on the upper west side of the floor.",
+      "keywords": ["lab 20", "020", "laboratory"]
+    },
+    {
+      "id": "lab019",
+      "name": "Lab 019",
+      "code": "019",
+      "type": "lab",
+      "x": 364,
+      "y": 602,
+      "width": 86,
+      "height": 304,
+      "accessPath": [
+        { "x": 696, "y": 598 },
+        { "x": 414, "y": 598 },
+        { "x": 414, "y": 590 }
+      ],
+      "entryNode": "node_left_lower",
+      "description": "Laboratory 019 beside the west lower corridor.",
+      "keywords": ["lab 19", "019", "laboratory"]
+    },
+    {
+      "id": "lab018",
+      "name": "Lab 018",
+      "code": "018",
+      "type": "lab",
+      "x": 258,
+      "y": 658,
+      "width": 132,
+      "height": 460,
+      "entryNode": "node_outer_left_bottom",
+      "accessPath": [
+        { "x": 414, "y": 888 }
+      ],
+      "description": "Laboratory 018 occupying the lower west outer wing.",
+      "keywords": ["lab 18", "018", "laboratory"]
+    },
+    {
+      "id": "staff_room_main",
+      "name": "Staff Room",
+      "code": "STAFF",
+      "type": "office",
+      "x": 430,
+      "y": 640,
+      "width": 252,
+      "height": 470,
+      "accessPath": [
+        { "x": 696, "y": 598 },
+        { "x": 556, "y": 598 },
+        { "x": 556, "y": 628 }
+      ],
+      "entryNode": "node_left_lower",
+      "description": "Main staff room opening to the west side of the entrance corridor.",
+      "keywords": ["staff room", "office", "staff"]
+    }
+  ]
+}

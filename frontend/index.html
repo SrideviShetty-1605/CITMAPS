@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta
+    name="description"
+    content="CITmaps is a web-based indoor navigation system for exploring a college building floor by floor."
+  >
+  <title>CITmaps</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/themes.css?v=20260508-corridor-strict2">
+  <link rel="stylesheet" href="css/styles.css?v=20260508-corridor-strict2">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="control-panel">
+      <section class="brand-card panel-card">
+        <p class="eyebrow">Indoor Navigation System</p>
+        <h1>CITmaps</h1>
+        <p class="lead">
+          Your smart guide to seamless indoor campus navigation.
+        </p>
+      </section>
+
+      <section class="panel-card search-card">
+        <div class="section-heading">
+          <h2>Search Destination</h2>
+          <button id="clearSearch" class="ghost-button" type="button">Clear</button>
+        </div>
+
+        <label class="field-label" for="searchInput">Room, lab, office, or facility</label>
+        <div class="search-row">
+          <input
+            id="searchInput"
+            type="search"
+            autocomplete="off"
+            placeholder="Try Library, Lab 020, Room 001..."
+          >
+        </div>
+        <div id="recentSearches" class="recent-searches" hidden>
+          <div class="recent-searches-header">
+            <span>Recent Searches</span>
+            <button id="clearRecentSearches" class="recent-clear-button" type="button">Clear Recent Searches</button>
+          </div>
+          <div id="recentSearchesList" class="recent-searches-list" aria-label="Recent searches"></div>
+        </div>
+        <p id="searchMeta" class="search-meta">Featured destinations for the ground floor.</p>
+        <div id="resultsList" class="results-list" aria-live="polite"></div>
+      </section>
+
+      <section class="panel-card route-card">
+        <div class="section-heading">
+          <h2>Route Builder</h2>
+        </div>
+
+        <label class="field-label" for="startSelect">You are here</label>
+        <select id="startSelect"></select>
+
+        <div id="selectedLocation" class="selected-card">
+          <p class="selected-overline">Destination</p>
+          <h3>Select a space to begin</h3>
+          <p>Search or select a room to highlight it in 3D and generate a route.</p>
+        </div>
+
+        <div class="route-actions">
+          <button id="routeToSelection" type="button">Route To Selected</button>
+          <button id="resetRoute" class="ghost-button" type="button">Reset Route</button>
+        </div>
+
+        <div id="routeMetrics" class="route-metrics"></div>
+        <div id="routeSteps" class="route-steps"></div>
+      </section>
+
+      <section class="panel-card legend-card">
+        <div class="section-heading">
+          <h2>Legend</h2>
+          <span class="legend-note">Live floor categories</span>
+        </div>
+        <div id="legend" class="legend-grid"></div>
+      </section>
+
+      <section class="panel-card stats-card">
+        <div class="section-heading">
+          <h2>Floor Snapshot</h2>
+          <span class="legend-note">Ground floor only</span>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-tile">
+            <strong id="statSpaces">0</strong>
+            <span>Searchable spaces</span>
+          </div>
+          <div class="stat-tile">
+            <strong id="statNodes">0</strong>
+            <span>Navigation nodes</span>
+          </div>
+          <div class="stat-tile">
+            <strong id="statPath">0 m</strong>
+            <span>Current route</span>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <main class="experience-panel">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Academic Block</p>
+          <h2>Ground Floor 3D Navigation</h2>
+        </div>
+        <div class="topbar-actions">
+          <span class="floor-pill">Ground Floor</span>
+          <button id="themeToggle" class="ghost-button" type="button">Dark Theme</button>
+        </div>
+      </header>
+
+      <section class="viewer-shell">
+        <div class="map-header scene-header">
+          <div>
+            <p class="map-kicker">Interactive 3D Floor Model</p>
+            <h3>Rotate around the full floor, zoom in, and follow the animated route from your start point to any destination.</h3>
+          </div>
+          <div class="map-controls">
+            <button id="focusScene" type="button">Refocus Scene</button>
+          </div>
+        </div>
+
+        <div id="threeStage" class="viewer-stage">
+          <div id="sceneLabelLayer" class="scene-label-layer"></div>
+          <div id="sceneOverlay" class="scene-overlay">
+            Drag to rotate around the building, pinch with two fingers to zoom, and select any destination from the sidebar.
+          </div>
+          <div id="sceneFallback" class="scene-fallback">
+            The 3D floor model will appear here when the page finishes loading.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/vendor/three.min.js?v=20260508-corridor-strict2"></script>
+  <script src="js/utils.js?v=20260508-corridor-strict2"></script>
+  <script src="js/dataLoader.js?v=20260508-corridor-strict2"></script>
+  <script src="js/navigation.js?v=20260508-corridor-strict2"></script>
+  <script src="js/search.js?v=20260508-corridor-strict2"></script>
+  <script src="js/searchHistory.js?v=20260614-search-history"></script>
+  <script src="js/ui.js?v=20260508-corridor-strict2"></script>
+  <script src="js/threeScene.js?v=20260508-corridor-strict2"></script>
+  <script src="js/app.js?v=20260508-corridor-strict2"></script>
+</body>
+</html>
